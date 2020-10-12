@@ -129,6 +129,7 @@ class CardPage extends StatelessWidget {
   Widget _cardtipo3() {
     final card = Container(
       //clipBehavior: Clip.antiAlias,
+      color: Colors.white,
       child: Column(
         children: [
           FadeInImage(
@@ -146,7 +147,7 @@ class CardPage extends StatelessWidget {
             padding: EdgeInsets.all(10),
             child: Text(
                 'Hola Este es Luffy y este es el container adaptado a una CARD'),
-            color: Colors.white,
+            color: Colors.red,
           )
         ],
       ),

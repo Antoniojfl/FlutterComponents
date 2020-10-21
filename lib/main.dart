@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 //import 'package:componentes/src/pages/home_temp.dart';
 import 'src/pages/home_page.dart';
@@ -13,6 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('es', ''),
+      ],
       debugShowCheckedModeBanner: false,
       title: 'Componentes App',
       //home: HomePage(),

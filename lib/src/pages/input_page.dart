@@ -9,6 +9,10 @@ class _InputFieldPage extends State<InputFieldPage> {
   String _name = '';
   String _email = '';
   String _fechanacimiento = '';
+  List _poderes = ['Volar', 'Rayos X', 'Super Fuerza', 'Super Aliento'];
+
+  String selectedOption = 'Volar';
+
   TextEditingController _fechaNac = new TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -30,6 +34,11 @@ class _InputFieldPage extends State<InputFieldPage> {
             ListTile(
               title: Text('Nombre: $_name'),
             ),
+            Row(children: [
+              Icon(Icons.select_all),
+              SizedBox(width: 20),
+              Expanded(child: _createDropDownButton())
+            ]),
           ],
         ));
   }
@@ -134,6 +143,7 @@ class _InputFieldPage extends State<InputFieldPage> {
       initialDate: new DateTime(2020, 10, 15, 17),
       firstDate: new DateTime(2018),
       lastDate: new DateTime(2022),
+      locale: Locale('es', 'VE'),
     );
 
     if (date != null) {
@@ -142,5 +152,32 @@ class _InputFieldPage extends State<InputFieldPage> {
         _fechaNac.text = _fechanacimiento;
       });
     }
+  }
+
+  Widget _createDropDownButton() {
+    return DropdownButton(
+      value: selectedOption,
+      items: _dropdownMenuItems(),
+      onChanged: (opt) {
+        setState(() {
+          selectedOption = opt;
+        });
+      },
+    );
+  }
+
+  List<DropdownMenuItem<String>> _dropdownMenuItems() {
+    List<DropdownMenuItem<String>> menu = new List();
+
+    _poderes.forEach((element) {
+      menu.add(
+        DropdownMenuItem(
+          child: Text(element),
+          value: element,
+        ),
+      );
+    });
+
+    return menu;
   }
 }

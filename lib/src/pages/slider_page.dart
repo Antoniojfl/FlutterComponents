@@ -28,10 +28,12 @@ class _SliderPageState extends State<SliderPage> {
 
   Widget _createSlider() {
     return Slider(
+      activeColor: Colors.indigoAccent,
+      label: 'Tamaño de la Imagen',
       value: _valueSlider,
       max: 400.0,
       min: 0.0,
-      //divisions: 5,
+      divisions: 200,
       onChanged: (double value) {
         //print(value);
         setState(() {
